@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { NextApiRequest, NextApiResponse } from 'next';
 import fauna from 'faunadb';
 
@@ -27,7 +28,7 @@ export default async function handler(
 ): Promise<void> {
   if (req.method === 'POST') {
     const { url, title, description } = req.body;
-
+    console.log(client);
     return client
       .query(
         query.Create(query.Collection('images'), {
